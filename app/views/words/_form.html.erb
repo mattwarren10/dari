@@ -18,7 +18,20 @@
 
   <div class="field">
     <%= form.label :part_of_speech %>
-    <%= form.text_field :part_of_speech %>
+    <%= form.select :part_of_speech, 
+          raw("<option>noun</option>
+               <option>pronoun</option>
+               <option>verb</option>
+               <option>adjective</option>
+               <option>adverb</option>
+               <option>preposition</option>
+               <option>conjunction</option>
+               <option>interjection</option>
+            "),
+          multiple: true,
+          class: 'form_input',
+          id: 'unique_id'
+    %>
   </div>
 
   <div class="field">
