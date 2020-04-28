@@ -22,12 +22,12 @@
 
 <p>
   <strong>Pronunciation:</strong>
-  <%= @word.pronunciation %>
+  <%= audio_tag(url_for(@word.pronunciation), controls: true) %>
 </p>
 
 <p>
   <strong>Image:</strong>
-  <%= @word.image %>
+  <%= image_tag(url_for(@word.image))  %>
 </p>
 
 <%= link_to 'Edit', edit_word_path(@word) %> |
