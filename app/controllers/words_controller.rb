@@ -26,7 +26,7 @@ class WordsController < ApplicationController
   def create
     @word = Word.new(word_params)
     pronunciation = params[:word][:pronunciation]
-    image = params[:word][:image]    
+    image = params[:word][:image]
     respond_to do |format|
       if @word.save
         if pronunciation
@@ -47,8 +47,16 @@ class WordsController < ApplicationController
   # PATCH/PUT /words/1
   # PATCH/PUT /words/1.json
   def update
+    pronunciation = params[:word][:pronunciation]
+    image = params[:word][:image]
     respond_to do |format|
       if @word.update(word_params)
+        if pronunciation
+          @word.pronunciation.attach(pronunciation)
+        end
+        if image
+          @word.image.attach(image)
+        end
         format.html { redirect_to @word, notice: 'Word was successfully updated.' }
         format.json { render :show, status: :ok, location: @word }
       else
