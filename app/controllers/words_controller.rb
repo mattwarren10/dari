@@ -25,9 +25,16 @@ class WordsController < ApplicationController
   # POST /words.json
   def create
     @word = Word.new(word_params)
-
+    pronunciation = params[:word][:pronunciation]
+    image = params[:word][:image]    
     respond_to do |format|
       if @word.save
+        if pronunciation
+          @word.pronunciation.attach(pronunciation)
+        end
+        if image
+          @word.image.attach(image)
+        end
         format.html { redirect_to @word, notice: 'Word was successfully created.' }
         format.json { render :show, status: :created, location: @word }
       else

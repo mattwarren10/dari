@@ -22,8 +22,8 @@
         <td><%= word.part_of_speech %></td>
         <td><%= word.transliteration %></td>
         <td><%= word.translation %></td>
-        <td><%= word.pronunciation %></td>
-        <td><%= word.image %></td>
+        <td><%= audio_tag(url_for(word.pronunciation), controls: true) %></td>
+        <td><%= image_tag(url_for(word.image))  %></td>
         <td><%= link_to 'Show', word %></td>
         <td><%= link_to 'Edit', edit_word_path(word) %></td>
         <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
