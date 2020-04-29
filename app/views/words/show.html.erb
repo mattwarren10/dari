@@ -30,5 +30,16 @@
   <%= image_tag(url_for(@word.image))  %>
 </p>
 
+<h2>Sentences</h2>
+<% for sentence in @word.sentences %>
+  <ul>
+    <li><%= sentence.english_sentence %></li>
+    <li><%= sentence.transliteration_sentence %></li>
+    <li><%= sentence.translation_sentence %></li>
+    <li><%= sentence.pronunciation_sentence %></li>
+  </ul>
+<% end %>
+
 <%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Add Sentence', word_sentences_path(@word) %> |
 <%= link_to 'Back', words_path %>

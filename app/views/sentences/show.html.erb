@@ -25,5 +25,5 @@
   <%= @sentence.word_id %>
 </p>
 
-<%= link_to 'Edit', edit_sentence_path(@sentence) %> |
-<%= link_to 'Back', sentences_path %>
+<%= link_to 'Edit', edit_word_sentence_path(@word, @sentence) %> |
+<%= link_to 'Back', word_sentences_path(@word) %>

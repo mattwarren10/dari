@@ -2,5 +2,5 @@
 
 <%= render 'form', sentence: @sentence %>
 
-<%= link_to 'Show', @sentence %> |
-<%= link_to 'Back', sentences_path %>
+<%= link_to 'Show', [@word, @sentence] %> |
+<%= link_to 'Back', word_sentences_path(@word) %>
