@@ -1,4 +1,4 @@
-<%= form_with(model: sentence, local: true) do |form| %>
+<%= form_with(model: [@word, sentence], local: true) do |form| %>
   <% if sentence.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sentence.errors.count, "error") %> prohibited this sentence from being saved:</h2>
@@ -29,11 +29,6 @@
   <div class="field">
     <%= form.label :pronunciation_sentence %>
     <%= form.text_field :pronunciation_sentence %>
-  </div>
-
-  <div class="field">
-    <%= form.label :word_id %>
-    <%= form.text_field :word_id %>
   </div>
 
   <div class="actions">
