@@ -3,32 +3,19 @@
 <h1>Words</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>English word</th>
-      <th>Part of speech</th>
-      <th>Transliteration</th>
-      <th>Translation</th>
-      <th>Pronunciation</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @words.each do |word| %>
-      <tr>
-        <td><%= word.id %></td>
-        <td><%= word.english_word %></td>
-        <td><%= word.part_of_speech %></td>
-        <td><%= word.transliteration %></td>
-        <td><%= word.translation %></td>
-        <td><%= audio_tag(url_for(word.pronunciation), controls: true) %></td>
-        <td><%= image_tag(url_for(word.image))  %></td>
-        <td><%= link_to 'Show', word %></td>
-        <td><%= link_to 'Edit', edit_word_path(word) %></td>
-        <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr><th>ID</th><td><%= word.id %></td></tr>
+      <tr><th>English word</th><td><%= word.english_word %></td></tr>
+      <tr><th>Part of speech</th><td><%= word.part_of_speech %></td></tr>
+      <tr><th>Transliteration</th><td><%= word.transliteration %></td></tr>
+      <tr><th>Translation</th><td><%= word.translation %></td></tr>
+      <tr><th>Pronunciation</th><td><%= audio_tag(url_for(word.pronunciation), controls: true) %></td></tr>
+      <tr><th>Image</th><td><%= image_tag(url_for(word.image))  %></td></tr>
+      <tr><th colspan="3"></th>
+          <td><%= link_to 'Show', word %></td>
+          <td><%= link_to 'Edit', edit_word_path(word) %></td>
+          <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
       </tr>
     <% end %>
   </tbody>
