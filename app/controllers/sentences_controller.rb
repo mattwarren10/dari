@@ -1,10 +1,11 @@
 class SentencesController < ApplicationController
+  before_action :get_word
   before_action :set_sentence, only: [:show, :edit, :update, :destroy]
 
   # GET /sentences
   # GET /sentences.json
   def index
-    @sentences = Sentence.all
+    @sentences = @word.sentences
   end
 
   # GET /sentences/1
@@ -14,7 +15,7 @@ class SentencesController < ApplicationController
 
   # GET /sentences/new
   def new
-    @sentence = Sentence.new
+    @sentence = @word.sentences.build
   end
 
   # GET /sentences/1/edit
@@ -24,11 +25,11 @@ class SentencesController < ApplicationController
   # POST /sentences
   # POST /sentences.json
   def create
-    @sentence = Sentence.new(sentence_params)
+    @sentence = @word.sentences.build(sentence_params)
 
     respond_to do |format|
       if @sentence.save
-        format.html { redirect_to @sentence, notice: 'Sentence was successfully created.' }
+        format.html { redirect_to word_posts_path(@word), notice: 'Sentence was successfully created.' }
         format.json { render :show, status: :created, location: @sentence }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class SentencesController < ApplicationController
   def update
     respond_to do |format|
       if @sentence.update(sentence_params)
-        format.html { redirect_to @sentence, notice: 'Sentence was successfully updated.' }
+        format.html { redirect_to word_sentences_path(@word), notice: 'Sentence was successfully updated.' }
         format.json { render :show, status: :ok, location: @sentence }
       else
         format.html { render :edit }
@@ -56,15 +57,18 @@ class SentencesController < ApplicationController
   def destroy
     @sentence.destroy
     respond_to do |format|
-      format.html { redirect_to sentences_url, notice: 'Sentence was successfully destroyed.' }
+      format.html { redirect_to word_sentences_path(@word), notice: 'Sentence was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def get_word
+      @word = Word.find(params[:word_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_sentence
-      @sentence = Sentence.find(params[:id])
+      @sentence = @word.sentences.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
