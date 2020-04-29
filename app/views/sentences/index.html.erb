@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sentences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>English sentence</th>
+      <th>Transliteration sentence</th>
+      <th>Translation sentence</th>
+      <th>Pronunciation sentence</th>
+      <th>Word</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sentences.each do |sentence| %>
+      <tr>
+        <td><%= sentence.english_sentence %></td>
+        <td><%= sentence.transliteration_sentence %></td>
+        <td><%= sentence.translation_sentence %></td>
+        <td><%= sentence.pronunciation_sentence %></td>
+        <td><%= sentence.word_id %></td>
+        <td><%= link_to 'Show', sentence %></td>
+        <td><%= link_to 'Edit', edit_sentence_path(sentence) %></td>
+        <td><%= link_to 'Destroy', sentence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sentence', new_sentence_path %>

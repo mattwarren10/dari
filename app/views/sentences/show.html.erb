@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>English sentence:</strong>
+  <%= @sentence.english_sentence %>
+</p>
+
+<p>
+  <strong>Transliteration sentence:</strong>
+  <%= @sentence.transliteration_sentence %>
+</p>
+
+<p>
+  <strong>Translation sentence:</strong>
+  <%= @sentence.translation_sentence %>
+</p>
+
+<p>
+  <strong>Pronunciation sentence:</strong>
+  <%= @sentence.pronunciation_sentence %>
+</p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @sentence.word_id %>
+</p>
+
+<%= link_to 'Edit', edit_sentence_path(@sentence) %> |
+<%= link_to 'Back', sentences_path %>
