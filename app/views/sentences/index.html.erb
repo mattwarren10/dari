@@ -17,14 +17,14 @@
   <tbody>
     <% @sentences.each do |sentence| %>
       <tr>
-        <td><%= sentence.english_sentence %></td>
-        <td><%= sentence.transliteration_sentence %></td>
-        <td><%= sentence.translation_sentence %></td>
-        <td><%= sentence.pronunciation_sentence %></td>
-        <td><%= sentence.word_id %></td>
-        <td><%= link_to 'Show', sentence %></td>
-        <td><%= link_to 'Edit', edit_sentence_path(sentence) %></td>
-        <td><%= link_to 'Destroy', sentence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= sentence.word.english_sentence %></td>
+        <td><%= sentence.word.transliteration_sentence %></td>
+        <td><%= sentence.word.translation_sentence %></td>
+        <td><%= sentence.word.pronunciation_sentence %></td>
+        <td><%= sentence.word.word_id %></td>
+        <td><%= link_to 'Show Word', [@word] %></td>
+        <td><%= link_to 'Edit Sentence', edit_word_sentence_path(@word, sentence) %></td>
+        <td><%= link_to 'Destroy Sentence', [@word, sentence], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Sentence', new_sentence_path %>
+<%= link_to 'New Sentence', new_word_sentence_path(@word) %>
