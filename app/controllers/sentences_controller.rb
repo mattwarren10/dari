@@ -29,7 +29,7 @@ class SentencesController < ApplicationController
 
     respond_to do |format|
       if @sentence.save
-        format.html { redirect_to word_posts_path(@word), notice: 'Sentence was successfully created.' }
+        format.html { redirect_to word_sentences_path(@word), notice: 'Sentence was successfully created.' }
         format.json { render :show, status: :created, location: @sentence }
       else
         format.html { render :new }
