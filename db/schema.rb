@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_212618) do
+ActiveRecord::Schema.define(version: 2020_04_29_212612) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2020_04_28_212618) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "sentences", force: :cascade do |t|
+    t.text "english_sentence"
+    t.text "transliteration_sentence"
+    t.text "translation_sentence"
+    t.string "pronunciation_sentence"
+    t.integer "word_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["word_id"], name: "index_sentences_on_word_id"
+  end
+
   create_table "words", force: :cascade do |t|
     t.string "english_word"
     t.string "part_of_speech"
@@ -45,4 +56,5 @@ ActiveRecord::Schema.define(version: 2020_04_28_212618) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "sentences", "words"
 end
