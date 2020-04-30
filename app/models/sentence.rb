@@ -1,4 +1,6 @@
 class Sentence < ApplicationRecord
+	has_one_attached :pronunciation_sentence
+
   belongs_to :word
 
   # validates :english_sentence, presence: true, uniqueness: true

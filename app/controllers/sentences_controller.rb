@@ -26,9 +26,12 @@ class SentencesController < ApplicationController
   # POST /sentences.json
   def create
     @sentence = @word.sentences.build(sentence_params)
-
+    pronunciation_sentence = params[:sentence][:pronunciation_sentence]
     respond_to do |format|
       if @sentence.save
+        if pronunciation_sentence
+          @sentence.pronunciation_sentence.attach(pronunciation_sentence)
+        end
         format.html { redirect_to word_sentences_path(@word), notice: 'Sentence was successfully created.' }
         format.json { render :show, status: :created, location: @sentence }
       else
@@ -66,6 +69,7 @@ class SentencesController < ApplicationController
     def get_word
       @word = Word.find(params[:word_id])
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_sentence
       @sentence = @word.sentences.find(params[:id])
