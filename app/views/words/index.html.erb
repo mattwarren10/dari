@@ -2,10 +2,12 @@
 
 <h1>English to Dari Words</h1>
 
-<%= link_to 'New Word', new_word_path %>
+<div class="new">
+  <%= link_to 'New Word', new_word_path %>  
+</div>
 
 <% @words.each do |word| %>
-  <table>
+  <table class="words-table">
     <tbody>
         <tr>
           <td>

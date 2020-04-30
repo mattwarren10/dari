@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.new {
+  display: block;
+}
+
 ///////////////GENERAL TABLE///////////////
 table {
 	padding-bottom: 50px;
@@ -33,4 +37,13 @@ tfoot td {
   font-size: 0.8em;
   font-style: italic;
   color: #8a97a0;
+}
+
+
+///////////////MEDIA QUERIES///////////////
+@media screen and (min-width: 800px) {
+  .words-table {
+    display: inline-block;
+    float: left;
+  }
 }
