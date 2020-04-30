@@ -9,7 +9,7 @@
     <tbody>
         <tr>
           <td>
-            <%= word.english_word %>
+            <%= link_to word.english_word, word %>
             (<%= word.part_of_speech %>)
           </td>
         </tr>
@@ -27,9 +27,8 @@
         </tr>
         <tr rowspan="3">
           <td>
-            <%= link_to 'Show', word %>
-            <%= link_to 'Edit', edit_word_path(word) %>
-            <%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_word_path(word) %> |
+            <%= link_to 'Delete', word, method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
     </tbody>
