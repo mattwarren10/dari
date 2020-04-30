@@ -36,7 +36,7 @@
     <li><%= sentence.english_sentence %></li>
     <li><%= sentence.transliteration_sentence %></li>
     <li><%= sentence.translation_sentence %></li>
-    <li><%= sentence.pronunciation_sentence %></li>
+    <li><%= audio_tag(url_for(sentence.pronunciation_sentence), controls: true) if sentence.pronunciation_sentence.attached? %></li>
   </ul>
 <% end %>
 
