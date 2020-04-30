@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>English word:</strong>
-  <%= @word.english_word %>
-</p>
+<table>
+  <tbody>
+    <tr>
+      <th>English word:</th>
+      <td><%= @word.english_word %></td>
+    </tr>
 
-<p>
-  <strong>Part of speech:</strong>
-  <%= @word.part_of_speech %>
-</p>
+    <tr>
+      <th>Part of speech:</th>
+      <td><%= @word.part_of_speech %></td>
+    </tr>
 
-<p>
-  <strong>Transliteration:</strong>
-  <%= @word.transliteration %>
-</p>
+    <tr>
+      <th>Transliteration:</th>
+      <td><%= @word.transliteration %></td>
+    </tr>
 
-<p>
-  <strong>Translation:</strong>
-  <%= @word.translation %>
-</p>
+    <tr>
+      <th>Translation:</th>
+      <td><%= @word.translation %></td>
+    </tr>
 
-<p>
-  <strong>Pronunciation:</strong>
-  <%= audio_tag(url_for(@word.pronunciation), controls: true) %>
-</p>
+    <tr>
+      <th>Pronunciation:</th>
+      <td><%= audio_tag(url_for(@word.pronunciation), controls: true) %></td>
+    </tr>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(url_for(@word.image))  %>
-</p>
+    <tr>
+      <th>Image:</th>
+      <td><%= image_tag(url_for(@word.image))  %></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2>Sentences</h2>
 <% for sentence in @word.sentences %>
