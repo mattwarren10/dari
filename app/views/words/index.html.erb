@@ -7,35 +7,25 @@
 <% @words.each do |word| %>
   <table>
     <tbody>
-        <tr class="border">
-          <th>ID</th>
-          <td><%= word.id %></td>
+        <tr>
+          <td>
+            <%= word.english_word %>
+            (<%= word.part_of_speech %>)
+          </td>
         </tr>
         <tr>
-          <th>English word</th>
-          <td><%= word.english_word %></td>
-        </tr>
-        <tr>
-          <th>Part of speech</th>
-          <td><%= word.part_of_speech %></td>
-        </tr>
-        <tr>
-          <th>Transliteration</th>
           <td><%= word.transliteration %></td>
         </tr>
         <tr>
-          <th>Translation</th>
           <td><%= word.translation %></td>
         </tr>
         <tr>
-          <th>Pronunciation</th>
           <td><%= audio_tag(url_for(word.pronunciation), controls: true) %></td>
         </tr>
         <tr>
-          <th>Image</th>
           <td><%= image_tag(url_for(word.image))  %></td>
         </tr>
-        <tr rowspan="3"><th>Modify</th>
+        <tr rowspan="3">
           <td>
             <%= link_to 'Show', word %>
             <%= link_to 'Edit', edit_word_path(word) %>
