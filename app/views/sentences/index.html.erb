@@ -3,35 +3,41 @@
 <h1>Sentences for "<%= @word.english_word %>"</h1>
 <%= link_to 'New Sentence', new_word_sentence_path(@word) %>
 <table>
-<% @sentences.each do |sentence| %>
-    <tbody>
+  <tbody>
+    <% @sentences.each do |sentence| %>
       <tr>
-        <th><%= sentence.english_sentence %></th>
-        <td></td>
+        <th>ID</th>
+        <td>sentence.id</td>
       </tr>
       <tr>
-        <th><%= sentence.transliteration_sentence %></th>
-        <td></td>
+        <th>English Sentence</th>
+        <td><%= sentence.english_sentence %></td>
       </tr>
       <tr>
-        <th><%= sentence.translation_sentence %></th>
-        <td></td>
+        <th>Transliteration Sentence</th>
+        <td><%= sentence.transliteration_sentence %></td>
       </tr>
       <tr>
-        <th><%= sentence.pronunciation_sentence %></th>
-        <td></td>
+        <th>Translation Sentence</th>
+        <td><%= sentence.translation_sentence %></td>
       </tr>
       <tr>
-        <th><%= sentence.word_id %></th>
-        <td></td>
+        <th>Pronunciation Sentence</th>
+        <td><%= audio_tag(url_for(sentence.pronunciation_sentence), controls: true) if sentence.pronunciation_sentence.attached?%></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= sentence.word_id %></td>
       </tr>
       <tr rowspan="3">
         <th>Modify</th>
-        <td><%= link_to 'Show Word', [@word] %></td>
-        <td><%= link_to 'Edit Sentence', edit_word_sentence_path(@word, sentence) %></td>
-        <td><%= link_to 'Destroy Sentence', [@word, sentence], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Word', [@word] %>
+        <%= link_to 'Edit Sentence', edit_word_sentence_path(@word, sentence) %>
+        <%= link_to 'Destroy Sentence', [@word, sentence], method: :delete, data: { confirm: 'Are you sure?' } %>
+          
+        </td>
       </tr>
-    </tbody>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
 
