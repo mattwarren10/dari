@@ -6,13 +6,13 @@
   <table>
     <tbody>
       <tr>
-        <td><%= sentence.english_sentence %></td>
+        <td><%= sentence.translation_sentence %></td>
       </tr>
       <tr>
         <td><%= sentence.transliteration_sentence %></td>
       </tr>
       <tr>
-        <td><%= sentence.translation_sentence %></td>
+        <td><%= sentence.english_sentence %></td>
       </tr>
       <tr>
         <td><%= audio_tag(url_for(sentence.pronunciation_sentence), controls: true) if sentence.pronunciation_sentence.attached? %></td>
