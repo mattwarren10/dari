@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>English to Dari Words</h1>
+<h1 class="h1-word">لغت ها و جمله ها دری به انگلیسی</h1>
 
 <div class="new">
-  <%= link_to 'New Word', new_word_path %>  
+  <%= link_to 'لغت نو', new_word_path %>  
 </div>
 
 <% @words.each do |word| %>
   <table class="words-table">
     <tbody>
         <tr>
+          <td><%= link_to word.translation, word, :class => "translation-word" %></td>
+        </tr>
+        <tr>
           <td>
-            <%= link_to word.english_word, word %>
+            <%= word.english_word %>
             (<%= word.part_of_speech %>)
           </td>
         </tr>
         <tr>
           <td><%= word.transliteration %></td>
-        </tr>
-        <tr>
-          <td><%= word.translation %></td>
         </tr>
         <tr>
           <td><%= audio_tag(url_for(word.pronunciation), controls: true) %></td>

@@ -2,12 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.h1-word {
+  font-size: 4em;
+  float: right;
+  display: block;
+  margin-right: 1.25em;
+}
+
 .new {
   display: block;
+  float: right;
+  font-size: 2em;
+  margin-right: 2.5em;
+  margin-bottom: 10px;
+  clear: right;
+}
+
+.english-word {
+  font-size: 1em;
+}
+
+.translation-word {
+  font-size: 4em;
+  text-decoration: none;
+}
+
+.words-table {
+  clear: right;
 }
 
 ///////////////GENERAL TABLE///////////////
 table {
+  margin-top: 50px;
 	padding-bottom: 50px;
 	border-top: 5px solid #333;
 }
@@ -39,10 +65,23 @@ tfoot td {
   color: #8a97a0;
 }
 
+///////////////SENTENCES///////////////
+.translation-sentence {
+  font-size: 2em;
+}
+
+
 
 ///////////////MEDIA QUERIES///////////////
 @media screen and (min-width: 800px) {
   .words-table {
+    display: inline-block;
+    float: left;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .sentences-table {
     display: inline-block;
     float: left;
   }

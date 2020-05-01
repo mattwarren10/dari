@@ -1,24 +1,21 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @word.english_word %> (<%= @word.part_of_speech %>)</h1>
+<h1 class="translation-word"><%= @word.translation %></h1>
 
+<%= link_to 'Back', words_path %> |
 <%= link_to 'Edit', edit_word_path(@word) %> |
-<%= link_to 'Back', words_path %>
-<%= link_to 'Sentences', word_sentences_path(@word) %> |
+<%= link_to 'Sentences', word_sentences_path(@word) %>
 
 <table>
   <tbody>
     <tr>
+      <td><%= @word.english_word %> (<%= @word.part_of_speech %>)</td>
+    </tr>
+    <tr>
       <td><%= @word.transliteration %></td>
     </tr>
-
-    <tr>
-      <td><%= @word.translation %></td>
-    </tr>
-
     <tr>
       <td><%= audio_tag(url_for(@word.pronunciation), controls: true) %></td>
     </tr>
-
     <tr>
       <td><%= image_tag(url_for(@word.image))  %></td>
     </tr>
@@ -27,15 +24,15 @@
 
 <h2>Sentences</h2>
 <% for sentence in @word.sentences %>
-  <table>
+  <table class="sentences-table">
+    <tr>
+      <td class="translation-sentence"><%= sentence.translation_sentence %></td>
+    </tr>
     <tr>
       <td><%= sentence.english_sentence %></td>
     </tr>
     <tr>
       <td><%= sentence.transliteration_sentence %></td>
-    </tr>
-    <tr>
-      <td><%= sentence.translation_sentence %></td>
     </tr>
     <tr>
       <td><%= audio_tag(url_for(sentence.pronunciation_sentence), controls: true) if sentence.pronunciation_sentence.attached? %>
